@@ -14,6 +14,7 @@ import java.security.interfaces.RSAPublicKey;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 
+import de.pawlidi.openaletheia.base.model.License;
 import de.pawlidi.openaletheia.generator.KeyGenerator;
 import de.pawlidi.openaletheia.license.LicenseHandler;
 import de.pawlidi.openaletheia.utils.CipherUtils;
@@ -32,24 +33,57 @@ public final class Aletheia implements Serializable {
 	/**
 	 * Default constructor to construct new aletheia object.
 	 */
-	private Aletheia() {
+	public Aletheia() {
 		super();
 		licenseHandler = new LicenseHandler(Constants.ALETHEIA_PRIVATE_KEY, Constants.ALETHEIA_PUBLIC_KEY);
 	}
 
 	public Aletheia(final String path) throws LicenseException {
 		this();
-		licenseHandler.load(path);
+		loadLicense(path);
 	}
 
 	public Aletheia(File licenseFile) throws LicenseException {
 		this();
-		licenseHandler.load(licenseFile);
+		loadLicense(licenseFile);
 	}
 
 	public Aletheia(InputStream licenseStream) throws LicenseException {
 		this();
-		licenseHandler.load(licenseStream);
+		loadLicense(licenseStream);
+	}
+
+	public void loadLicense(final String path) throws LicenseException {
+		if (StringUtils.isNotBlank(path)) {
+			licenseHandler.load(path);
+		}
+	}
+
+	public void loadLicense(File licenseFile) throws LicenseException {
+		if (licenseFile != null) {
+			licenseHandler.load(licenseFile);
+		}
+	}
+
+	public void loadLicense(InputStream licenseStream) throws LicenseException {
+		if (licenseStream != null) {
+			licenseHandler.load(licenseStream);
+		}
+	}
+
+	public void saveLicense(final String path, License license) throws LicenseException {
+		if (StringUtils.isNotBlank(path)) {
+			saveLicense(new File(path), license);
+		}
+
+	}
+
+	public void saveLicense(File licenseFile, License license) throws LicenseException {
+		if (licenseFile != null && license != null) {
+			licenseHandler.setLicense(license);
+			licenseHandler.save(licenseFile.getPath());
+		}
+
 	}
 
 	public void verifyLicense() throws LicenseException {

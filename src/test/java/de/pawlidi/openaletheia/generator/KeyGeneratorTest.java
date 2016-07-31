@@ -54,7 +54,8 @@ public class KeyGeneratorTest {
 	 */
 	@Test
 	public void testGenerateKeyFiles() {
-		assertTrue(true);
+		assertTrue(KeyGenerator.generateKeyFiles("."));
+
 	}
 
 	/**
