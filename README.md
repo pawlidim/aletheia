@@ -52,7 +52,7 @@ aletheia.verifyLicense();
 // dispose reserved fields
 aletheia.dispose();
 ```
-Add following de
+##Dependencies
 ```xml
 	<dependency>
   		<groupId>commons-lang</groupId>
