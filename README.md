@@ -25,7 +25,8 @@ Aletheia aletheia = new Aletheia();
 // save license as lic file
 aletheia.saveLicense("mylicense.lic", license);
 
-// dispose reserved field
+// dispose reserved fields
+aletheia.dispose();
 ```
 
 The lic file contains following informations.
