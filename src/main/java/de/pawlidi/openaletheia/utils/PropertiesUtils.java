@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2016 Maximilian Pawlidi
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package de.pawlidi.openaletheia.utils;
 
 import java.util.ArrayList;
@@ -50,29 +65,25 @@ public class PropertiesUtils {
 		return !PropertiesUtils.isEmpty(properties);
 	}
 
-	public static void setStringProperty(Properties properties,
-			final String key, final String value) {
+	public static void setStringProperty(Properties properties, final String key, final String value) {
 		if (StringUtils.isNotEmpty(value)) {
 			properties.setProperty(key, value);
 		}
 	}
 
-	public static void setDateProperty(Properties properties, final String key,
-			final DateTime value) {
+	public static void setDateProperty(Properties properties, final String key, final DateTime value) {
 		if (value != null) {
 			properties.setProperty(key, Constants.DATE_FORMAT.print(value));
 		}
 	}
 
-	public static void setObjectProperty(Properties properties,
-			final String key, final Object value) {
+	public static void setObjectProperty(Properties properties, final String key, final Object value) {
 		if (value != null) {
 			properties.setProperty(key, value.toString());
 		}
 	}
 
-	public static String getStringProperty(Properties properties,
-			final String key) {
+	public static String getStringProperty(Properties properties, final String key) {
 		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
 			return null;
 		}
@@ -86,8 +97,7 @@ public class PropertiesUtils {
 		return properties.remove(key);
 	}
 
-	public static DateTime getDateProperty(Properties properties,
-			final String key) {
+	public static DateTime getDateProperty(Properties properties, final String key) {
 		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
 			return null;
 		}
@@ -110,14 +120,14 @@ public class PropertiesUtils {
 	 * <code>'true'</code>, <code>'on'</code> or <code>'yes'</code> (case
 	 * insensitive) will return <code>true</code>. <code>'false'</code>,
 	 * <code>'off'</code> or <code>'no'</code> (case insensitive) will return
-	 * <code>false</code>. Otherwise, <code>null</code> is returned.</p>
+	 * <code>false</code>. Otherwise, <code>null</code> is returned.
+	 * </p>
 	 * 
 	 * @param properties
 	 * @param key
 	 * @return
 	 */
-	public static Boolean getBooleanProperty(Properties properties,
-			final String key) {
+	public static Boolean getBooleanProperty(Properties properties, final String key) {
 		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
 			return null;
 		}
@@ -143,8 +153,7 @@ public class PropertiesUtils {
 		}
 	}
 
-	public static List<String> getListProperty(Properties properties,
-			final String key) {
+	public static List<String> getListProperty(Properties properties, final String key) {
 		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
 			return null;
 		}
@@ -163,10 +172,8 @@ public class PropertiesUtils {
 
 	}
 
-	public static void setListProperty(Properties properties, String key,
-			List<String> values) {
-		if (PropertiesUtils.isNotEmpty(properties)
-				&& StringUtils.isNotEmpty(key) && values != null
+	public static void setListProperty(Properties properties, String key, List<String> values) {
+		if (PropertiesUtils.isNotEmpty(properties) && StringUtils.isNotEmpty(key) && values != null
 				&& !values.isEmpty()) {
 			final int listSize = values.size();
 			StringBuilder listProperty = new StringBuilder();
