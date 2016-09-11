@@ -57,7 +57,7 @@ final class LicenseLoader implements Serializable {
 	}
 
 	public Properties load(final String fileName) throws LicenseException {
-		if (StringUtils.isEmpty(fileName)) {
+		if (StringUtils.isBlank(fileName)) {
 			throw new LicenseException("Invalid license file");
 		}
 		return load(new File(fileName));
@@ -104,7 +104,7 @@ final class LicenseLoader implements Serializable {
 			throw new LicenseException("Given properties cannot be empty or null");
 		}
 
-		if (StringUtils.isEmpty(publicKey)) {
+		if (StringUtils.isBlank(publicKey)) {
 			throw new LicenseException("Given public key cannot be empty or null");
 		}
 

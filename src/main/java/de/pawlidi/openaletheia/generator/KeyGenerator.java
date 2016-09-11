@@ -81,7 +81,7 @@ public final class KeyGenerator {
 	 */
 	public static boolean generateKeyFiles(String rootDirectory) {
 		boolean successful = false;
-		if (!StringUtils.isEmpty(rootDirectory)) {
+		if (!StringUtils.isBlank(rootDirectory)) {
 			File rootDir = new File(rootDirectory);
 			if (rootDir.exists() && rootDir.isDirectory()) {
 				// generate key pair
@@ -128,7 +128,7 @@ public final class KeyGenerator {
 	}
 
 	public static String readKeyFile(final String directory, final boolean privateKeyFile) {
-		if (!StringUtils.isEmpty(directory)) {
+		if (!StringUtils.isBlank(directory)) {
 			File rootDir = new File(directory);
 			if (rootDir.exists() && rootDir.isDirectory()) {
 				Collection<File> files = FileUtils.listFiles(rootDir, new String[] { KEY_FILE_EXTENSION }, false);
@@ -150,7 +150,7 @@ public final class KeyGenerator {
 	}
 
 	public static boolean flushPublicKeySpec(final String directory, RSAPublicKey publicKey) {
-		if (StringUtils.isEmpty(directory) || !new File(directory).isDirectory() || publicKey == null) {
+		if (StringUtils.isBlank(directory) || !new File(directory).isDirectory() || publicKey == null) {
 			return false;
 		}
 		return writeKeySpec(new File(directory, PUBLIC_KEYSPEC_FILE), publicKey.getModulus(),
@@ -159,7 +159,7 @@ public final class KeyGenerator {
 	}
 
 	public static boolean flushPrivateKeySpec(final String directory, RSAPrivateKey privateKey) {
-		if (StringUtils.isEmpty(directory) || !new File(directory).isDirectory() || privateKey == null) {
+		if (StringUtils.isBlank(directory) || !new File(directory).isDirectory() || privateKey == null) {
 			return false;
 		}
 		return writeKeySpec(new File(directory, PRIVATE_KEYSPEC_FILE), privateKey.getModulus(),
@@ -192,7 +192,7 @@ public final class KeyGenerator {
 	}
 
 	public static RSAPublicKeySpec readPublicKeySpec(final String directory) {
-		if (StringUtils.isEmpty(directory) || !new File(directory).isDirectory()) {
+		if (StringUtils.isBlank(directory) || !new File(directory).isDirectory()) {
 			return null;
 		}
 		RSAPublicKeySpec publicKeySpec = null;
@@ -221,7 +221,7 @@ public final class KeyGenerator {
 	}
 
 	public static RSAPrivateKeySpec readPrivateKeySpec(final String directory) {
-		if (StringUtils.isEmpty(directory) || !new File(directory).isDirectory()) {
+		if (StringUtils.isBlank(directory) || !new File(directory).isDirectory()) {
 			return null;
 		}
 		RSAPrivateKeySpec privateKeySpec = null;

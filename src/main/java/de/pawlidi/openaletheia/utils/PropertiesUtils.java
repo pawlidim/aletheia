@@ -84,25 +84,25 @@ public class PropertiesUtils {
 	}
 
 	public static String getStringProperty(Properties properties, final String key) {
-		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
+		if (PropertiesUtils.isEmpty(properties) || StringUtils.isBlank(key)) {
 			return null;
 		}
 		return properties.getProperty(key);
 	}
 
 	public static Object removeValue(Properties properties, final String key) {
-		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
+		if (PropertiesUtils.isEmpty(properties) || StringUtils.isBlank(key)) {
 			return null;
 		}
 		return properties.remove(key);
 	}
 
 	public static DateTime getDateProperty(Properties properties, final String key) {
-		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
+		if (PropertiesUtils.isEmpty(properties) || StringUtils.isBlank(key)) {
 			return null;
 		}
 		String property = properties.getProperty(key);
-		if (StringUtils.isEmpty(property)) {
+		if (StringUtils.isBlank(property)) {
 			return null;
 		}
 		try {
@@ -128,7 +128,7 @@ public class PropertiesUtils {
 	 * @return
 	 */
 	public static Boolean getBooleanProperty(Properties properties, final String key) {
-		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
+		if (PropertiesUtils.isEmpty(properties) || StringUtils.isBlank(key)) {
 			return null;
 		}
 		final String property = properties.getProperty(key);
@@ -139,7 +139,7 @@ public class PropertiesUtils {
 	}
 
 	public static Long getLongProperty(Properties properties, final String key) {
-		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
+		if (PropertiesUtils.isEmpty(properties) || StringUtils.isBlank(key)) {
 			return null;
 		}
 		final String property = properties.getProperty(key);
@@ -154,7 +154,7 @@ public class PropertiesUtils {
 	}
 
 	public static List<String> getListProperty(Properties properties, final String key) {
-		if (PropertiesUtils.isEmpty(properties) || StringUtils.isEmpty(key)) {
+		if (PropertiesUtils.isEmpty(properties) || StringUtils.isBlank(key)) {
 			return null;
 		}
 

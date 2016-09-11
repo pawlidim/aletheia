@@ -65,7 +65,7 @@ final class LicenseGenerator implements Serializable {
 		// clear properties
 		properties.clear();
 
-		if (!StringUtils.isEmpty(privateKey)) {
+		if (!StringUtils.isBlank(privateKey)) {
 
 			// create license properties
 			LicenseProperties.createProperties(properties, license);

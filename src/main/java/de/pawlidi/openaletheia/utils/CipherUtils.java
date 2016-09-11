@@ -274,7 +274,7 @@ public final class CipherUtils {
 	}
 
 	public static String encryptPassword(final String password) {
-		if (StringUtils.isEmpty(password)) {
+		if (StringUtils.isBlank(password)) {
 			return null;
 		}
 		StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
@@ -292,7 +292,7 @@ public final class CipherUtils {
 	 * @return true if passwords match, false if not or empty
 	 */
 	public static boolean verifyPassword(final String plainPassword, final String encryptedPassword) {
-		if (StringUtils.isEmpty(plainPassword) || StringUtils.isEmpty(encryptedPassword)) {
+		if (StringUtils.isBlank(plainPassword) || StringUtils.isBlank(encryptedPassword)) {
 			return false;
 		}
 		StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
