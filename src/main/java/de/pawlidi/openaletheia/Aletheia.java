@@ -46,8 +46,19 @@ public final class Aletheia implements Serializable {
 	 * Default constructor to construct new aletheia object.
 	 */
 	public Aletheia() {
+		this(Constants.ALETHEIA_PRIVATE_KEY, Constants.ALETHEIA_PUBLIC_KEY);
+	}
+
+	/**
+	 * Constructor to construct new aletheia object for given private and public
+	 * key.
+	 * 
+	 * @param privateKey
+	 * @param publicKey
+	 */
+	public Aletheia(final String privateKey, final String publicKey) {
 		super();
-		licenseHandler = new LicenseHandler(Constants.ALETHEIA_PRIVATE_KEY, Constants.ALETHEIA_PUBLIC_KEY);
+		licenseHandler = new LicenseHandler(privateKey, publicKey);
 	}
 
 	public Aletheia(final String path) throws LicenseException {

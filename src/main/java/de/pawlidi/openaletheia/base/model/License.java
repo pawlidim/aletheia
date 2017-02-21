@@ -18,6 +18,7 @@ package de.pawlidi.openaletheia.base.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -49,6 +50,7 @@ public final class License implements Serializable {
 	private Boolean remote;
 	private String signature;
 	private List<User> users = new ArrayList<User>();
+	private Properties properties;
 
 	public License() {
 		super();
@@ -56,7 +58,7 @@ public final class License implements Serializable {
 
 	public License(String uuid, String product, String productVersion, Long maxHost, String address, String owner,
 			String operatingSystem, String company, Long maxUser, DateTime created, DateTime modified, DateTime dueDate,
-			String description, Boolean remote) {
+			String description, Boolean remote, Properties properties) {
 		super();
 		this.uuid = uuid;
 		this.product = product;
@@ -72,6 +74,7 @@ public final class License implements Serializable {
 		this.dueDate = dueDate;
 		this.description = description;
 		this.remote = remote;
+		this.properties = properties;
 	}
 
 	/**
@@ -343,6 +346,25 @@ public final class License implements Serializable {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	/**
+	 * Getter to get the properties.
+	 * 
+	 * @return properties
+	 */
+	public Properties getProperties() {
+		return properties;
+	}
+
+	/**
+	 * Setter to set the properties.
+	 * 
+	 * @param properties
+	 *            to set
+	 */
+	public void setProperties(Properties properties) {
+		this.properties = properties;
 	}
 
 	/*

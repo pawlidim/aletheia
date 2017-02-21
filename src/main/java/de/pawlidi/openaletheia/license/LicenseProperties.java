@@ -67,16 +67,25 @@ public abstract class LicenseProperties {
 	public static final String OS = "os";
 
 	public static License createLicense(Properties properties) {
-		return createLicense(properties, new License());
+		return createLicense(properties, new License(), null);
+	}
+
+	public static License createLicense(Properties properties, Properties additional) {
+		return createLicense(properties, new License(), additional);
+	}
+
+	public static License createLicense(Properties properties, License license) {
+		return createLicense(properties, license, null);
 	}
 
 	/**
 	 * 
 	 * @param properties
 	 * @param license
+	 * @param additional
 	 * @return
 	 */
-	public static License createLicense(Properties properties, License license) {
+	public static License createLicense(Properties properties, License license, Properties additional) {
 		if (PropertiesUtils.isEmpty(properties) || license == null) {
 			return null;
 		}
@@ -102,6 +111,9 @@ public abstract class LicenseProperties {
 				users.add(new User().toObject(userProperty));
 			}
 			license.setUsers(users);
+		}
+		if (!PropertiesUtils.isEmpty(additional)) {
+			license.setProperties(additional);
 		}
 		return license;
 
@@ -140,7 +152,9 @@ public abstract class LicenseProperties {
 			users.add(user.toString());
 		}
 		PropertiesUtils.setListProperty(properties, LicenseProperties.USER, users);
-
+		if (!PropertiesUtils.isEmpty(license.getProperties())) {
+			properties.putAll(license.getProperties());
+		}
 		return properties;
 	}
 

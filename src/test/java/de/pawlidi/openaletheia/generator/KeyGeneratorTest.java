@@ -66,7 +66,7 @@ public class KeyGeneratorTest {
 	 */
 	@Test
 	public void testGenerateKeyFiles() {
-		assertTrue(KeyGenerator.generateKeyFiles("."));
+		assertTrue(KeyGenerator.generateKeyFiles("C:\\temp"));
 
 	}
 
