@@ -45,7 +45,7 @@ dependencies {
 
 Add aletheia jar file to your application classpath. The following example shows the basic usage of this library.
 
-Create new license and save it as �mylicense.lic� file.
+Create new license and save it as mylicense.lic file.
 
 ```java
 // create simple lincense object
