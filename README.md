@@ -4,9 +4,48 @@ application specific properties they are characteristic for the customer and pur
 
 # How to use
 
+## Build ##
+
+### Requisites ###
+
+* JDK 7
+* Maven 3.1 or newer
+
+### Compile, package and install locally ###
+
+```
+mvn clean install
+```
+
+## Usage ##
+
+### Maven ###
+```
+<dependency>
+    <groupId>de.pawlidi</groupId>
+    <artifactId>aletheia</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+### Gradle ###
+```
+dependencies {
+    compile group: 'de.pawlidi', name: 'aletheia', version: '1.0.0'
+}
+```
+
+### Ivy ###
+```
+<dependency org="de.pawlidi" name="aletheia" rev="1.0.0"/>
+```
+
+### Example ###
+
+
 Add aletheia jar file to your application classpath. The following example shows the basic usage of this library.
 
-Create new license and save it as „mylicense.lic“ file.
+Create new license and save it as ï¿½mylicense.licï¿½ file.
 
 ```java
 // create simple lincense object
